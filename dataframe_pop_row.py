@@ -7,9 +7,10 @@ import numpy as np
 def dataframe_pop(df, idx = 0):
     arr_size = df.shape[0]
     arr  = np.ones(arr_size, dtype=bool)
-
     arr[idx] = False
-    return df[arr]
+    popped_row = df[~arr]
+    result = df[arr]
+    return (popped_row, result)
 
 # df.shape
 print(dataframe_pop(df, 2))
